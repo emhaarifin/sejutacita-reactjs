@@ -1,13 +1,14 @@
-import { REQUEST_GET_CATEGORIES, SUCCESS_GET_CATEGORIES, ERROR_GET_CATEGORIES } from './constants';
-import { BookuState, DispatchType } from './types';
-const initialState: BookuState = {
+import { SUCCESS_GET_CATEGORIES, ERROR_GET_CATEGORIES, REQUEST_GET_CATEGORIES } from './constants';
+import { CategoriesState, DispatchTypeCategories } from './types';
+const initialState: CategoriesState = {
   categories: [],
   loading: false,
   error: false,
   errorMsg: '',
+  page: 0,
 };
 
-const bookuReducer = (state = initialState, action: DispatchType) => {
+const categoriesReducer = (state = initialState, action: DispatchTypeCategories) => {
   switch (action.type) {
     case REQUEST_GET_CATEGORIES:
       return {
@@ -36,4 +37,4 @@ const bookuReducer = (state = initialState, action: DispatchType) => {
   }
 };
 
-export default bookuReducer;
+export default categoriesReducer;

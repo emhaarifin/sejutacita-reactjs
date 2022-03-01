@@ -3,17 +3,21 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import bookuReducer from './booku/reducer';
+import booksReducer from './books/reducer';
 import userReducer from './user/reducer';
+import { PersistConfig } from 'redux-persist/es/types';
+import categoriesReducer from './categories/reducer';
 
-const persistConfig = {
+const persistConfig: PersistConfig<RootState> = {
   key: 'booku',
   storage,
+  whitelist: [],
 };
 
 const rootReducers = combineReducers({
-  booku: bookuReducer,
+  books: booksReducer,
   user: userReducer,
+  categories: categoriesReducer,
 });
 
 const isProduction = process.env.NODE_ENV === 'production';

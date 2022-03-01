@@ -1,4 +1,4 @@
-import { Categories } from '../booku/types';
+import { Categories } from 'store/categories/types';
 import { SET_NAME, SET_FAVORITE_CATEGORIES } from './constants';
 
 export interface UserState {
