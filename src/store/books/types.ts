@@ -1,4 +1,10 @@
-import { REQUEST_GET_BOOKS, SUCCESS_GET_BOOKS, ERROR_GET_BOOKS, LOAD_MORE_BOOKS } from './constants';
+import {
+  REQUEST_GET_BOOKS,
+  SUCCESS_GET_BOOKS,
+  ERROR_GET_BOOKS,
+  LOAD_MORE_BOOKS,
+  RESET_BOOKS_REDUCERS,
+} from './constants';
 
 export interface Section {
   title: string;
@@ -46,4 +52,8 @@ export interface dispatchLoadMoreBooks {
   type: typeof LOAD_MORE_BOOKS;
 }
 
-export type DispatchTypeBooks = dispatchGetBooks | dispatchLoadMoreBooks;
+export interface dispatchResetBooksReducers {
+  type: typeof RESET_BOOKS_REDUCERS;
+}
+
+export type DispatchTypeBooks = dispatchGetBooks | dispatchLoadMoreBooks | dispatchResetBooksReducers;

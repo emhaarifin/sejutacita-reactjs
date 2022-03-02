@@ -1,4 +1,10 @@
-import { REQUEST_GET_BOOKS, SUCCESS_GET_BOOKS, ERROR_GET_BOOKS, LOAD_MORE_BOOKS } from './constants';
+import {
+  REQUEST_GET_BOOKS,
+  SUCCESS_GET_BOOKS,
+  ERROR_GET_BOOKS,
+  LOAD_MORE_BOOKS,
+  RESET_BOOKS_REDUCERS,
+} from './constants';
 import { BooksState, DispatchTypeBooks } from './types';
 const initialState: BooksState = {
   books: [],
@@ -37,6 +43,8 @@ const booksReducer = (state = initialState, action: DispatchTypeBooks) => {
         ...state,
         page: Number(state.page + 1),
       };
+    case RESET_BOOKS_REDUCERS:
+      return initialState;
     default:
       return state;
   }
