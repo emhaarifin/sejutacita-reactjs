@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* The loading Class */
+.skeleton {
+  position: relative;
+
+  background-color: #e2e2e2;
+}
+
+/* The moving element */
+.skeleton::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(transparent),
+    color-stop(rgba(255, 255, 255, 0.2)),
+    to(transparent)
+  );
+
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+
+  /* Adding animation */
+  animation: skeleton 0.8s infinite;
+}
+
+/* skeleton Animation */
+@keyframes skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.layout--page-content {
+  @apply container px-2 pb-20 pt-5 mx-auto overflow-x-hidden flex flex-col;
+  min-height: calc(100vh - 132px);
+}
+
+@media (min-width: 640px) {
+  .layout--page-content {
+    min-height: calc(100vh - 64px);
+  }
+}
