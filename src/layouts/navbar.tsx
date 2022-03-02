@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           <Search />
           <Link to='/bookmark' aria-label='link'>
             <div className='flex rounded-full bg-indigo-500 items-center justify-center px-4 sm:px-6 py-1'>
-              <Bookmark />
+              <Bookmark fill='#fff' size={32} />
               <span className='text-white text-md hidden sm:block pr-1.5'>Bookmark</span>
             </div>
           </Link>
