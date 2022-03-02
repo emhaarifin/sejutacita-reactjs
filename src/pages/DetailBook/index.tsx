@@ -73,7 +73,7 @@ const DetailBook: React.FC = () => {
     <Fragment>
       <section className='flex flex-col md:flex-row py-5 max-w-5xl mx-auto'>
         <section className='flex w-full md:w-2/5 flex-col  items-center justify-center h-full'>
-          <ImageBook alt={book.title} src={book.cover_url} className='h-72' />
+          <ImageBook alt={book.title} src={book.cover_url} />
           <div className='md:mx-6  text-center'>
             <div className='flex items-center my-4'>
               <button disabled className='py-1 bg-slate-200 border-slate-300 border rounded-full px-6'>
@@ -90,7 +90,7 @@ const DetailBook: React.FC = () => {
             </div>
           </div>
         </section>
-
+        <div className='mx-9' />
         <section className='w-full md:w-3/5 pt-6'>
           <div className='flex items-center'>
             <button onClick={handleBookmark} aria-label='bookmark'>
