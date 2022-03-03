@@ -9,22 +9,23 @@ const LayoutExplore: React.FC = () => {
   const categoriesState = useSelector((state: RootState) => state.categories);
   return (
     <Fragment>
-      {categoriesState.categories.length > 0 && (
-        <Defer chunkSize={5}>
-          <div>
-            <p className='text-xl'>Explore by category</p>
-          </div>
-          <div className='my-3'></div>
-          <div className='flex w-full overflow-scroll whitespace-nowrap'>
-            {categoriesState.categories.map((category) => (
-              <CustomLink className='whitespace-nowrap' key={category.id} to={`explore/${category.id}`}>
-                {category.name}
-              </CustomLink>
-            ))}
-          </div>
-        </Defer>
-      )}
-      <div className='my-8'></div>
+      <header>
+        <div>
+          <p className='text-xl'>Explore category</p>
+        </div>
+        <div className='flex w-full overflow-scroll whitespace-nowrap'>
+          {categoriesState.categories.length > 0 && (
+            <Defer chunkSize={5}>
+              {categoriesState.categories.map((category) => (
+                <CustomLink className='whitespace-nowrap' key={category.id} to={`explore/${category.id}`}>
+                  {category.name}
+                </CustomLink>
+              ))}
+            </Defer>
+          )}
+        </div>
+      </header>
+      <div className='my-6'></div>
       <Outlet />
     </Fragment>
   );

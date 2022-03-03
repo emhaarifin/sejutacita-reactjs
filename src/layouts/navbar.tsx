@@ -6,13 +6,13 @@ import { Link, useMatch } from 'react-router-dom';
 const Search = lazy(() => import('components/Search'));
 const Navbar: React.FC = () => {
   const isPageExplore = Boolean(useMatch('/explore/*'));
+
   return (
-    <nav className='px-2 py-3 relative z-50 container mx-auto'>
+    <nav className='px-2 py-3 relative z-50 container mx-auto max-w-7xl'>
       <div className='flex flex-wrap justify-between items-stretch'>
         <Link to='/'>
           <Brand />
         </Link>
-
         <div className={`flex flex-wrap  sm:w-auto sm:p-0 ${isPageExplore ? 'py-4 justify-between w-full' : ''}`}>
           {isPageExplore && <Search />}
           <Link to='/bookmark' aria-label='link'>
