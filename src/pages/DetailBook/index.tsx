@@ -15,15 +15,15 @@ import getCategoryById from 'utils/getCategoryById';
 interface locationState {
   book: Book;
 }
-const DetailBook: React.FC = () => {
+const PageDetailBook: React.FC = () => {
   const location = useLocation();
   const params = useParams() as { category_id: string; id: string };
   const query = useQuery();
   const dispatch = useDispatch();
-  const CategoriesState = useSelector((state: RootState) => state.categories);
   const userState = useSelector((state: RootState) => state.user);
-  const handleAddReadingBook = useRef(() => {});
 
+  const categoriesState = useSelector((state: RootState) => state.categories);
+  const handleAddReadingBook = useRef(() => {});
   const bookStateLocation = (location?.state as locationState)?.book as readingBooks;
   const book = (userState.readingBooks.find(
     (readingBook) => readingBook?.id === Number(params?.id) && readingBook?.category_id === Number(params?.category_id)
@@ -114,10 +114,9 @@ const DetailBook: React.FC = () => {
               </>
             }
           />
-
           <AttributeBookDetail
             title='Category'
-            content={`${getCategoryById(CategoriesState.categories, book.category_id)?.name}}`}
+            content={`${getCategoryById(categoriesState.categories, book.category_id)?.name}`}
           />
           <AttributeBookDetail title="What's it about?" content={book.description}></AttributeBookDetail>
           <AttributeBookDetail
@@ -140,4 +139,4 @@ const DetailBook: React.FC = () => {
   );
 };
 
-export default DetailBook;
+export default PageDetailBook;
