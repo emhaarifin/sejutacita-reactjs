@@ -23,7 +23,7 @@ const LoadOnScroll: React.FC<{
         },
         {
           root: null,
-          rootMargin: '20px',
+          rootMargin: '40px',
           threshold: 1.0,
         }
       );
@@ -36,7 +36,7 @@ const LoadOnScroll: React.FC<{
     [hashMore, loading, onLoad]
   );
 
-  return <div ref={componentRef} className='h-20'></div>;
+  return <div ref={componentRef} className='h-72'></div>;
 };
 
 export default LoadOnScroll;
