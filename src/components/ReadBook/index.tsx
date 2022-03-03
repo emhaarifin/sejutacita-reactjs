@@ -8,7 +8,7 @@ interface ReadBookProps {
 
 const ReadBook: React.FC<ReadBookProps> = ({ title, content, nextChapter }) => {
   return (
-    <section className='max-w-2xl mx-auto flex flex-1 flex-col'>
+    <section className='max-w-2xl min-w-[42rem] mx-auto flex flex-1 flex-col'>
       <header className='text-center mt-10 mb-5'>
         <p>{title}</p>
       </header>
