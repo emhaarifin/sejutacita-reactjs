@@ -6,7 +6,7 @@ import axios, { AxiosError } from 'axios';
 export const getCategories = () => async (dispatch: Dispatch<dispatchGetCategories>) => {
   dispatch({ type: REQUEST_GET_CATEGORIES });
   try {
-    const categories = (await axios.get('fee-assessment-categories')).data;
+    const categories = (await axios.get('/fee-assessment-categories')).data;
     dispatch({ type: SUCCESS_GET_CATEGORIES, payload: { categories } });
     return categories;
   } catch (error) {

@@ -16,7 +16,7 @@ export const getBooks =
     const page = getState().books.page;
     dispatch({ type: REQUEST_GET_BOOKS });
     try {
-      const books = (await axios.get(`fee-assessment-books?categoryId=${categoryId}&page=${page}&size=${size}`)).data;
+      const books = (await axios.get(`/fee-assessment-books?categoryId=${categoryId}&page=${page}&size=${size}`)).data;
       dispatch({ type: SUCCESS_GET_BOOKS, payload: { books } });
       return books;
     } catch (error) {
