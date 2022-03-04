@@ -1,12 +1,13 @@
-import LayoutExplore from 'layouts/explore';
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-const PageHome = lazy(() => import('pages/Home'));
-const PageDetailBook = lazy(() => import('pages/DetailBook'));
 const Layout = lazy(() => import('layouts/default'));
+const LayoutExplore = lazy(() => import('layouts/explore'));
 const ErrorBoundary = lazy(() => import('pages/ErrorBoundary'));
-const PageBookmark = lazy(() => import('pages/Bookmark'));
+const PageHome = lazy(() => import('pages/Home'));
 const PageExplore = lazy(() => import('pages/Explore'));
+const PageDetailBook = lazy(() => import('pages/DetailBook'));
+const PageBookmark = lazy(() => import('pages/Bookmark'));
+const PageNotFound = lazy(() => import('pages/NotFound'));
 
 const BookuRoutes: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const BookuRoutes: React.FC = () => {
               </Route>
               <Route path='bookmark' element={<PageBookmark />} />
               <Route path='book/:category_id/:id' element={<PageDetailBook />} />
+              <Route path='*' element={<PageNotFound />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
