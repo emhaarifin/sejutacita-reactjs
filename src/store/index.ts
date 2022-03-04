@@ -11,7 +11,7 @@ import categoriesReducer from './categories/reducer';
 const persistConfig: PersistConfig<RootState> = {
   key: 'booku',
   storage,
-  whitelist: ['categories', 'user'],
+  whitelist: ['user'],
 };
 
 const rootReducers = combineReducers({
