@@ -44,6 +44,13 @@ const PageHome: React.FC = () => {
     }
   }, [booksState.books]);
 
+  useEffect(() => {
+    let abortController = new AbortController();
+    return () => {
+      abortController.abort();
+    };
+  });
+
   return (
     <Fragment>
       <section className='my-6'>
