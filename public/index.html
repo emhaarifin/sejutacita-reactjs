@@ -23,6 +23,28 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>Booku</title>
+  <script>
+    window.requestIdleCallback =
+      window.requestIdleCallback ||
+      function (handler) {
+        let startTime = Date.now();
+
+        return setTimeout(function () {
+          handler({
+            didTimeout: false,
+            timeRemaining: function () {
+              return Math.max(0, 50.0 - (Date.now() - startTime));
+            },
+          });
+        }, 1);
+      };
+
+    window.cancelIdleCallback =
+      window.cancelIdleCallback ||
+      function (id) {
+        clearTimeout(id);
+      };
+  </script>
 </head>
 
 <body>
@@ -38,6 +60,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
 </body>
 
 </html>

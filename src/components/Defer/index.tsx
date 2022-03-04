@@ -11,14 +11,14 @@ const Defer: React.FC<DeferProps> = ({ chunkSize, children }) => {
 
   useEffect(() => {
     if (renderedItemsCount < childrenArray.length) {
-      const handler = window.requestIdleCallback(
+      const handler = window?.requestIdleCallback(
         () => {
           setRenderedItemsCount(Math.min(renderedItemsCount + chunkSize, childrenArray.length));
         },
         { timeout: 200 }
       );
       return () => {
-        window.cancelIdleCallback(handler);
+        window?.cancelIdleCallback(handler);
       };
     }
   }, [renderedItemsCount, setRenderedItemsCount, childrenArray.length, chunkSize]);
