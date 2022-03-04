@@ -9,9 +9,9 @@ const LayoutExplore: React.FC = () => {
   const categoriesState = useSelector((state: RootState) => state.categories);
   return (
     <Fragment>
-      <header>
-        <div>
-          <p className='text-xl'>Explore category</p>
+      <header className='my-6'>
+        <div className='py-2'>
+          <p className='text-xl'>Explore by category</p>
         </div>
         <div className='flex w-full overflow-scroll whitespace-nowrap'>
           {categoriesState.categories.length > 0 && (
@@ -25,7 +25,6 @@ const LayoutExplore: React.FC = () => {
           )}
         </div>
       </header>
-      <div className='my-6'></div>
       <Outlet />
     </Fragment>
   );
