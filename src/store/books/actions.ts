@@ -8,7 +8,8 @@ import {
   RESET_BOOKS_REDUCERS,
 } from './constants';
 import { dispatchGetBooks, dispatchLoadMoreBooks, dispatchResetBooksReducers } from './types';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
+import axios from 'plugins/axios';
 
 export const getBooks =
   ({ categoryId, size = 10 }: { categoryId: number; size?: number }) =>

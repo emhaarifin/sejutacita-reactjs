@@ -1,7 +1,8 @@
 import { Dispatch } from 'redux';
 import { ERROR_GET_CATEGORIES, SUCCESS_GET_CATEGORIES, REQUEST_GET_CATEGORIES } from './constants';
 import { dispatchGetCategories } from './types';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
+import axios from 'plugins/axios';
 
 export const getCategories = () => async (dispatch: Dispatch<dispatchGetCategories>) => {
   dispatch({ type: REQUEST_GET_CATEGORIES });
